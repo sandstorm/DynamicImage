@@ -1,0 +1,10 @@
+prototype(Sandstorm.DynamicImage:VipsVariant) {
+    @class = 'Sandstorm\\DynamicImage\\FusionObjects\\VipsVariantImplementation'
+    identifier = ''
+    image = null
+    rules = Neos.Fusion:DataStructure
+
+    # we add the workspace name, to have unique identifiers.
+    identifier.@process.addWorkspaceName = ${value + '@' + node.context.workspaceName + documentNode.context.workspaceName}
+}
+

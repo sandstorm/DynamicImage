@@ -1,0 +1,9 @@
+// Reference: https://libvips.github.io/libvips/API/current/libvips-convolution.html#vips-gaussblur
+prototype(Sandstorm.DynamicImage:Rule.GaussianBlur) < prototype(Neos.Fusion:Component) {
+    // how large a mask to use
+    sigma = 1
+
+    renderer = Neos.Fusion:DataStructure {
+        gaussblur = ${[props.sigma]}
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "require": {
+        "neos/media": "*"
+    },
+    "suggest": {
+        "rokka/imagine-vips": "*"
+    },
+    "name": "sandstorm/dynamicimage",
+    "autoload": {
+        "psr-4": {
+            "Sandstorm\\DynamicImage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Sandstorm.DynamicImage"
+        }
+    }
+}

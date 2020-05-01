@@ -1,0 +1,24 @@
+prototype(Sandstorm.DynamicImage:Rule.LCH) < prototype(Neos.Fusion:Component) {
+    // multiplication factor for the Luminance channel ("Helligkeit")
+    luminance = 1
+
+    // multiplication factor for the Chroma channel ("Farbintensität")
+    chroma = 1
+
+    // multiplication factor for the Hue channel ("Farbton")
+    hue = 1
+
+    renderer = Neos.Fusion:DataStructure {
+        // https://libvips.github.io/libvips/API/current/libvips-colour.html#vips-colourspace
+        "colourspace# convert to LCH" = ${['lch']}
+
+        // https://libvips.github.io/libvips/API/current/libvips-arithmetic.html#vips-linear
+        // L - Luminance - Helligkeit
+        // C - Chroma - **Sättigung**
+        // H - Farbton
+        "linear# adjust LCH" = ${[[props.luminance, props.chroma, props.hue], 0]}
+
+        // https://libvips.github.io/libvips/API/current/libvips-colour.html#vips-colourspace
+        "colourspace# convert back to RGB" = ${['srgb']}
+    }
+}
